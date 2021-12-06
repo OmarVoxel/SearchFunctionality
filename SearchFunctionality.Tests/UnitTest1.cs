@@ -12,5 +12,6 @@ namespace SearchFunctionality.Tests
             Funcionality funcionality = new Funcionality("ss");
             funcionality.Search().Should().Be(null);
         }
+        
     }
 }

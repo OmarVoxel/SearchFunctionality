@@ -13,25 +13,35 @@ namespace SearchFunctionality.Tests
             funcionality.Search().Should().Be(null);
         }
         
-        [Fact]
-        public void ReturnAllCountryCityNamesStartingWithTheExactSearch()
+        [Theory]
+        [InlineData("Va", "Valencia, Vancouver" )]
+        [InlineData("Dub", "Dubai" )]
+        [InlineData("Amste", "Amsterdam" )]
+        public void ReturnAllCountryCityNamesStartingWithTheExactSearch(string search, string result)
         {
-            Funcionality funcionality = new Funcionality("Va");
-            funcionality.Search().Should().Be("Valencia, Vancouver");
+            Funcionality funcionality = new Funcionality(search);
+            funcionality.Search().Should().Be(result);
         }
         
-        [Fact]
-        public void ReturnAllCountryCityNamesStartingWithTheExactSearchEvenIfIsCaseInsensitive()
+        [Theory]
+        [InlineData("va", "Valencia, Vancouver" )]
+        [InlineData("dub", "Dubai" )]
+        [InlineData("amste", "Amsterdam" )]
+        public void ReturnAllCountryCityNamesStartingWithTheExactSearchEvenIfIsCaseInsensitive(string search, string result)
         {
-            Funcionality funcionality = new Funcionality("va");
-            funcionality.Search().Should().Be("Valencia, Vancouver");
+            Funcionality funcionality = new Funcionality(search);
+            funcionality.Search().Should().Be(result);
         }
         
-        [Fact]
-        public void ReturTheCountryEvenIfTheSearchTextIsJustAPartOfTheCountry()
+       
+        [Theory]
+        [InlineData("couve", "Vancouver" )]
+        [InlineData("uba", "Dubai" )]
+        [InlineData("terd", "Rotterdam, Amsterdam" )]
+        public void ReturTheCountryEvenIfTheSearchTextIsJustAPartOfTheCountry(string search, string result)
         {
-            Funcionality funcionality = new Funcionality("ape");
-            funcionality.Search().Should().Be("Budapest");
+            Funcionality funcionality = new Funcionality(search);
+            funcionality.Search().Should().Be(result);
         }
         
         [Fact]

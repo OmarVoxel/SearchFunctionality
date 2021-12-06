@@ -27,5 +27,12 @@ namespace SearchFunctionality.Tests
             funcionality.Search().Should().Be("Valencia, Vancouver");
         }
         
+        [Fact]
+        public void ReturTheCountryEvenIfTheSearchTextIsJustAPartOfTheCountry()
+        {
+            Funcionality funcionality = new Funcionality("ape");
+            funcionality.Search().Should().Be("Budapest");
+        }
+        
     }
 }

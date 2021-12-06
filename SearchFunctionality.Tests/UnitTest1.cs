@@ -20,5 +20,12 @@ namespace SearchFunctionality.Tests
             funcionality.Search().Should().Be("Valencia, Vancouver");
         }
         
+        [Fact]
+        public void ReturnAllCountryCityNamesStartingWithTheExactSearchEvenIfIsCaseInsensitive()
+        {
+            Funcionality funcionality = new Funcionality("va");
+            funcionality.Search().Should().Be("Valencia, Vancouver");
+        }
+        
     }
 }

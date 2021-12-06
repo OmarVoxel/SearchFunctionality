@@ -22,7 +22,7 @@ namespace SearchFunctionality
         public string Search()
         {
             if (_search.Length > 1)
-                return countryList.Where(x => x.StartsWith(_search)).Aggregate((a, b) => a + ", " + b);
+                return countryList.Where(x => x.ToLower().StartsWith(_search.ToLower())).Aggregate((a, b) => a + ", " + b);
             
             return null;
         }

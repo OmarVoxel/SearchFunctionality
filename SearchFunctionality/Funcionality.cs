@@ -21,10 +21,10 @@ namespace SearchFunctionality
 
         public string Search()
         {
-            if (_search.Length > 1)
-                return countryList.Where(x => x.ToLower().Contains(_search.ToLower())).Aggregate((a, b) => a + ", " + b);
+            if(_search == "*")
+                return countryList.Aggregate((a,b) => a + ", " + b);
             
-            return null;
+            return _search.Length > 1 ? countryList.Where(x => x.ToLower().Contains(_search.ToLower())).Aggregate((a, b) => a + ", " + b) : null;
         }
     }
 }

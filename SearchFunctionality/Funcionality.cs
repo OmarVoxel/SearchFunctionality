@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SearchFunctionality
 {
@@ -20,6 +21,9 @@ namespace SearchFunctionality
 
         public string Search()
         {
+            if (_search.Length > 1)
+                return countryList.Where(x => x.StartsWith(_search)).Aggregate((a, b) => a + ", " + b);
+            
             return null;
         }
     }

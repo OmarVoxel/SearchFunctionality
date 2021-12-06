@@ -9,7 +9,7 @@ namespace SearchFunctionality.Tests
         [Fact]
         public void ReturnNoResultIfSearchIsFewerThan2Characters()
         {
-            Funcionality funcionality = new Funcionality("ss");
+            Funcionality funcionality = new Funcionality("s");
             funcionality.Search().Should().Be(null);
         }
         

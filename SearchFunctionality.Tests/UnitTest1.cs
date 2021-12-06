@@ -1,13 +1,16 @@
 using System;
 using Xunit;
+using FluentAssertions;
 
 namespace SearchFunctionality.Tests
 {
-    public class UnitTest1
+    public class SearchShould
     {
         [Fact]
-        public void Test1()
+        public void ReturnNoResultIfSearchIsFewerThan2Characters()
         {
+            Funcionality funcionality = new Funcionality("ss");
+            funcionality.Search().Should().Be(null);
         }
     }
 }
